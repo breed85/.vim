@@ -13,6 +13,9 @@ execute pathogen#infect()
 " Add extra way to exit from insert mode
 inoremap jk <ESC>
 
+" Allow dot command in visual mode
+vnoremap . :norm.<CR>
+
 " Make external commands work through a pipe instead of a pseudo-tty
 "set noguipty
 
