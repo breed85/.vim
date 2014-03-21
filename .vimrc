@@ -29,7 +29,7 @@ set ch=1
 set et
 
 " Show current mode
-set showmode
+set noshowmode
 
 " Search as I type
 set incsearch
@@ -38,6 +38,7 @@ set incsearch
 set ts=4
 
 " Shift width is 4 spaces set sw=4
+set sw=4
 
 " Display cursor position
 set ruler
@@ -57,6 +58,9 @@ let c_comment_strings=1
 
 " Switch on syntax highlighting.
 syntax on
+
+" UTF-8 support
+set enc=UTF-8
 
 " Switch on search pattern highlighting.
 set hlsearch
@@ -92,6 +96,12 @@ autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 let g:SuperTabDefaultCompletionType = "context"
 
+" Add powerline support
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+set laststatus=2
+
 " Leader Shortcuts
 "
 "
@@ -101,4 +111,3 @@ nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
