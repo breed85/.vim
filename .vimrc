@@ -25,20 +25,14 @@ vnoremap . :norm.<CR>
 " Make command line two lines high
 set ch=1
 
-" Expand Tabs to Spaces
-set et
+" Expand Tabs to 4 Spaces
+set et ts=4 sw=4 sts=4
 
 " Show current mode
 set noshowmode
 
 " Search as I type
 set incsearch
-
-" Tabs are 4 spaces
-set ts=4
-
-" Shift width is 4 spaces set sw=4
-set sw=4
 
 " Display cursor position
 set ruler
@@ -48,10 +42,6 @@ set nobackup
 
 " Show line numbers
 set nu
-
-" Change map leader from \ to ,
-let mapleader=","
-
 
 " I like highlighting strings inside C comments
 let c_comment_strings=1
@@ -68,19 +58,15 @@ set hlsearch
 " Hide the mouse pointer while typing
 set mousehide
 
+" Allow hidden files that have not been saved
+set hidden
+
 set background=dark
 color solarized
 call togglebg#map("<F5>")
 
 " Save marks for 100 files, f1 = save global marks
 set viminfo='20,f1
-
-" Map <F2> to run recorded macros
-map <F2> @r
-
-" Tabularize for pipes using ,ap in normal or visual mode
-nmap ,ap :Tabularize /\|<CR>
-vmap ,ap :Tabularize /\|<CR>
 
 " GO related configuration
 " Some Linux distributions set filetype in /etc/vimrc.
@@ -100,8 +86,18 @@ let g:SuperTabDefaultCompletionType = "context"
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
+" Ensure powerline shows on single buffer
 set laststatus=2
 
+
+" Ctrl-n to toggle nerd tree
+map <C-n> :NERDTreeToggle<CR>
+
+" Auto close VIM if nerd tree is the last open window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Change map leader from \ to ,
+let mapleader=","
 " Leader Shortcuts
 "
 "
@@ -111,3 +107,11 @@ nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Tabularize for pipes using <mapleader>ap in normal or visual mode
+nmap <mapleader>ap :Tabularize /\|<CR>
+vmap <mapleader>ap :Tabularize /\|<CR>
+
+" Map <mapleader>r to run recorded macros
+nmap <mapleader>r @r
+
