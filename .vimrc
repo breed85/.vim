@@ -89,9 +89,8 @@ python del powerline_setup
 " Ensure powerline shows on single buffer
 set laststatus=2
 
-
-" Ctrl-n to toggle nerd tree
-map <C-n> :NERDTreeToggle<CR>
+" Ctrl-t to toggle nerd tree
+map <C-t> :NERDTreeToggle<CR>
 
 " Auto close VIM if nerd tree is the last open window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
