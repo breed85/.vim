@@ -101,16 +101,16 @@ let mapleader=","
 "
 "
 " Remove whitespace
-nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
+nnoremap <leader>w :%s/\s\+$//<CR>:let @/=''<CR>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-" Tabularize for pipes using <mapleader>ap in normal or visual mode
-nmap <mapleader>ap :Tabularize /\|<CR>
-vmap <mapleader>ap :Tabularize /\|<CR>
+" Tabularize for pipes using <leader>ap in normal or visual mode
+nmap <silent> <leader>ap :Tabularize /\|<CR>
+vmap <silent> <leader>ap :Tabularize /\|<CR>
 
-" Map <mapleader>r to run recorded macros
-nmap <mapleader>r @r
+" Map <leader>r to run recorded macros
+nmap <silent> <leader>r @r
 
