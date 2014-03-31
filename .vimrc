@@ -23,19 +23,19 @@ vnoremap . :norm.<CR>
 " set guifont=-misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1
 
 " Make command line two lines high
-set ch=1
+"set ch=1
 
 " Expand Tabs to 4 Spaces
 set et ts=4 sw=4 sts=4
 
 " Show current mode
-set noshowmode
+"set noshowmode
 
 " Search as I type
 set incsearch
 
 " Display cursor position
-set ruler
+"set ruler
 
 " Don't Maintain a Backup File
 set nobackup
@@ -44,7 +44,7 @@ set nobackup
 set nu
 
 " I like highlighting strings inside C comments
-let c_comment_strings=1
+"let c_comment_strings=1
 
 " Switch on syntax highlighting.
 syntax on
@@ -78,9 +78,15 @@ set runtimepath+=$GOROOT/misc/vim
 filetype plugin indent on
 
 " Run go fmt on file save
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
+au FileType go autocmd BufWritePre <buffer> GoFmt
 
-let g:SuperTabDefaultCompletionType = "context"
+" Auto close preview window after insertion
+let g:ycm_autoclose_preview_window_after_insertion=1
+
+" UltiSnips overrides to work better with YCM
+let g:UltiSnipsExpandTrigger='<CR>'
+let g:UltiSnipsJumpForwardTrigger='<c-j>'
+let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 
 " Add powerline support
 python from powerline.vim import setup as powerline_setup
@@ -114,3 +120,11 @@ vmap <silent> <leader>ap :Tabularize /\|<CR>
 " Map <leader>r to run recorded macros
 nmap <silent> <leader>r @r
 
+" Import the package under the cursor
+au Filetype go nnoremap <buffer> <leader>i :exe 'GoImport ' . expand('<cword>')<CR>
+
+" Open a horizontal definition/declaration of the ID under the cursor
+au Filetype go nnoremap <buffer> <leader>s :sp <CR>:exe "GoDef"<CR>
+
+" Lint go files
+au Filetype go nnoremap <buffer> <leader>l :GoLint<CR>
