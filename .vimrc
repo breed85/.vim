@@ -83,10 +83,12 @@ au FileType go autocmd BufWritePre <buffer> GoFmt
 " Auto close preview window after insertion
 let g:ycm_autoclose_preview_window_after_insertion=1
 
-" UltiSnips overrides to work better with YCM
-let g:UltiSnipsExpandTrigger='<CR>'
-let g:UltiSnipsJumpForwardTrigger='<c-j>'
-let g:UltiSnipsJumpBackwardTrigger='<c-k>'
+" YCM overrides to better work with UltiSnips
+let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>']
+
+" Super tab override to let YCM work better with UltiSnips
+let g:SuperTabDefaultCompletionType = '<C-Tab>'
 
 " Add powerline support
 python from powerline.vim import setup as powerline_setup
@@ -125,6 +127,9 @@ au Filetype go nnoremap <buffer> <leader>i :exe 'GoImport ' . expand('<cword>')<
 
 " Open a horizontal definition/declaration of the ID under the cursor
 au Filetype go nnoremap <buffer> <leader>s :sp <CR>:exe "GoDef"<CR>
+
+" Jump to definition/declaration of the ID under the cursor
+au Filetype go nnoremap <buffer> <leader>d :exe "GoDef"<CR>
 
 " Lint go files
 au Filetype go nnoremap <buffer> <leader>l :GoLint<CR>
