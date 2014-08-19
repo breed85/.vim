@@ -103,6 +103,12 @@ map <C-t> :NERDTreeToggle<CR>
 " Auto close VIM if nerd tree is the last open window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+" Ctrl-p user command for speed
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files --exclude-standard -co', "find %s -type f | egrep -v '/\.(git|hg|svn)|solr|tmp/"]
+
+" Ctrl-p Keep caches between sessions - f5 to refresh
+let g:ctrlp_clear_cache_on_exit = 0
+
 " Change map leader from \ to ,
 let mapleader=","
 " Leader Shortcuts

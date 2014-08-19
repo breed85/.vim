@@ -1,0 +1,17 @@
+#!/bin/sh
+
+cp ./ctrlp.vim/doc/ctrlp.txt ../doc/ctrlp.txt
+cp ./dash.vim/doc/dash.txt ../doc/dash.txt
+cp ./delimitMate/doc/delimitMate.txt ../doc/delimitMate.txt
+cp ./nerdtree/doc/NERD_tree.txt ../doc/NERD_tree.txt
+cp ./supertab/doc/supertab.txt ../doc/supertab.txt
+cp ./syntastic/doc/syntastic.txt ../doc/syntastic.txt
+cp ./tabular/doc/Tabular.txt ../doc/Tabular.txt
+cp ./ultisnips/doc/UltiSnips.txt ../doc/UltiSnips.txt
+cp ./vim-colors-solarized/doc/solarized.txt ../doc/solarized.txt
+cp ./vim-go/doc/vim-go.txt ../doc/vim-go.txt
+cp ./vim-gocode/doc/vim-gocode.txt ../doc/vim-gocode.txt
+cp ./vim-multiple-cursors/doc/multiple_cursors.txt ../doc/multiple_cursors.txt
+cp ./vim-numbertoggle/doc/numbertoggle.txt ../doc/numbertoggle.txt
+cp ./vim-surround/doc/surround.txt ../doc/surround.txt
+cp ./YouCompleteMe/doc/youcompleteme.txt ../doc/youcompleteme.txt
