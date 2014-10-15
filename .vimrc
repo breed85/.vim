@@ -61,6 +61,9 @@ set mousehide
 " Allow hidden files that have not been saved
 set hidden
 
+" Search upstream for a tags file
+set tags=./tags;/
+
 set background=dark
 color solarized
 call togglebg#map("<F5>")
